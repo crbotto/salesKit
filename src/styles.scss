@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.box {
+    min-height: 200px;
+    width: 200px;
+    background-color: #f4f4f4;
+	border: 1px solid lightgray;
+    border-radius: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+    margin-top: 2%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.thumbnail {
+    height: 120px;
+    width: 120px;
+    padding: 10px;
+}

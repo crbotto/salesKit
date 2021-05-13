@@ -1,0 +1,52 @@
+
+.file {
+    font-size: 12px;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    padding: 5px;
+    color: #f5721a;
+}
+
+.tooltip {
+    font-size: 10px;
+    text-align: center;
+    // display: none;
+    color: #f5721a;
+    padding: 2px;
+    margin: 5px;
+    border: 1px solid #f4f4f4;
+    background-color: white;
+}
+
+@media only screen and (max-width: 1024px) {
+    .tooltip {
+        display: block;
+        padding: 5px;
+        font-size: 10px;
+    }
+
+    .file {
+        font-size: 12px;
+    }
+
+    .thumbnail {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+.tooltipTemplate {
+    font-size: 12px;
+    text-align: left;
+}
+
+.switch {
+     font-size: 11px;
+    text-align: center;
+    // display: none;
+    color: #f5721a;
+    padding: 2px;
+    margin: 5px;
+}

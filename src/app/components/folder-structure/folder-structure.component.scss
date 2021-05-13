@@ -1,0 +1,63 @@
+// .page {
+//     width: 100%;
+//     height: 100%;
+// }
+
+.title {
+    width: 100%;
+    text-align: center;
+}
+
+.loading {
+    height: 300px;
+    width: 20%;
+    margin-left: 40%;
+    margin-top: 20%;
+}
+
+.spinner-row {
+    margin-top: 15%;
+    width: 50%;
+  }
+  
+  .spinner-text {
+    color:#f5721a;
+    margin-top: 2%;
+    width: 50%;
+  }
+
+  .uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #f5721a;
+  }
+
+  .list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    align-content: flex-end;
+  }
+
+  .pathBox {
+      border: 1px solid black;
+      margin: 20px;
+  }
+
+  
+
+.path {
+    display: inline-block;
+}
+
+.label {
+    font-weight: bold;
+    padding: 5px;
+}
+
+.pathText {
+    color: blue;
+    cursor: pointer;
+    font-size: 14px;
+}

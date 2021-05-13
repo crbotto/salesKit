@@ -1,0 +1,6 @@
+<div class="box" (click)="viewFolder()">
+    <img class="thumbnail" src="{{folder.thumbnail.url}}" appImgFallback="globals.defaultImageUrl"/>
+    <div class="folder">{{folder.metadata.title}}</div>
+    <div class="folder">Total Items: {{folder.itemCount}}</div>
+</div>
+

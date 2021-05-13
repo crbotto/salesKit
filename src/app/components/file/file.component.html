@@ -1,0 +1,25 @@
+<!-- <div class="box"  [tooltip]="fileTooltip" content-type="template" [options]="tooltipOptions"> -->
+<div class="box">
+    <div (click)="openFile()">
+        <img class="thumbnail" src="{{file.thumbnail.url}}" appImgFallback="globals.defaultImageUrl"/>
+        <div  class="file">{{file.asset.filename}}</div>
+    </div>
+    <div *ngIf="!isOpen" (click)="switchIsOpen()" class="switch">Details &#9656;</div>
+    <div *ngIf="isOpen" (click)="switchIsOpen()" class="switch">Details &#9662;</div>
+     <div *ngIf="isOpen" class="tooltip" (click)="openFile()">
+        <div *ngIf="file.metadata.description"><b>Description:</b> {{ file.metadata.description }}</div>
+        <div *ngIf="file.created"><b>Created on:</b> {{ file.created | date: 'MM/dd/yyyy' }}</div>
+        <div *ngIf="file.modified"><b>Modified on:</b> {{ file.modified | date: 'MM/dd/yyyy' }}</div>
+        <div *ngIf="file.modifiedBy"><b>Modified By:</b> {{ file.modifiedBy }}</div>
+     </div>
+</div>
+
+
+<ng-template #fileTooltip>
+    <div class="tooltipTemplate">
+        <div *ngIf="file.metadata.description"><b>Description:</b> {{ file.metadata.description }}</div>
+        <div *ngIf="file.created"><b>Created on:</b> {{ file.created | date: 'MM/dd/yyyy' }}</div>
+        <div *ngIf="file.modified"><b>Modified on:</b> {{ file.modified | date: 'MM/dd/yyyy' }}</div>
+        <div *ngIf="file.modifiedBy"><b>Modified By:</b> {{ file.modifiedBy }}</div>
+    </div>
+</ng-template>
