@@ -7,6 +7,10 @@ To navigate backwards just click on a folder name on the "Path".
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.<br>
 If you have an older version of Angular you should run: <b>ng update @angular/cli@^<major_version> @angular/core@^<major_version></b> to update your Angular version.
 
+## Install Dependencies
+
+To install dependencies run <b>npm install</b>
+  
 ## Development server
 
 Run <b>`ng serve --aot`</b> or <b>'npm start'</b> for a dev server. 
