@@ -4,8 +4,8 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .box {
-    min-height: 200px;
-    width: 200px;
+    min-height: 250px;
+    width: 250px;
     background-color: #f4f4f4;
 	border: 1px solid lightgray;
     border-radius: 5px;
@@ -17,7 +17,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .thumbnail {
-    height: 120px;
-    width: 120px;
+    height: 200px;
+    width: 200px;
     padding: 10px;
 }

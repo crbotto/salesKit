@@ -1,20 +1,10 @@
 .folder {
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
     color: blue;
     cursor: pointer;
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
-}
-
-@media only screen and (max-width: 1024px) {
-    .folder {
-        font-size: 12px;
-    }
-
-    .thumbnail {
-        height: 100px;
-        width: 100px;
-    }
+    padding: 5px;
 }

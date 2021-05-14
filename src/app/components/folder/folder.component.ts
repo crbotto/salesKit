@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
+import { Folder } from 'src/app/classes/folder';
 import { Globals } from 'src/app/classes/globals';
 
 @Component({
@@ -7,18 +8,17 @@ import { Globals } from 'src/app/classes/globals';
   styleUrls: ['./folder.component.scss']
 })
 export class FolderComponent implements OnInit {
-  @Input() item: any;
-  @Output() openFolder: EventEmitter<any> = new EventEmitter();
+  @Input() folder: Folder;
+  @Output() openFolder: EventEmitter<string> = new EventEmitter();
 
-  folder: any;
   globals:Globals;
 
   constructor() { this.globals = new Globals(); }
 
   ngOnInit() {
-    this.folder = this.item;
   }
 
+  // This function handles the event when user clicks on a folder box to open it
   viewFolder(){
     this.openFolder.emit(this.folder.id);
   }

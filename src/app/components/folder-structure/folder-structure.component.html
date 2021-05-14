@@ -1,28 +1,22 @@
 
-
-<div class="title">
+ <div class="title">
     <h3>
-    My Sales Kit
-</h3>
+        My Sales Kit
+    </h3>
 </div>
-<div class="page">
-    <div class="pathBox">
-        <div class="path label">Path:</div>
-        <div *ngFor="let folder of currentPath" class="path">
-            /<a (click)="openFolder(folder.id)" class="pathText">{{folder.metadata.title}}</a>
-        </div>
-    </div>
-    <div *ngIf="loading" class="loading">
-        <!-- <div fxLayout="row" fxLayoutAlign="center center"> -->
-            <mat-spinner class="spinner-row" color="primary" strokeWidth="10" [diameter]="80"></mat-spinner>
-        <!-- </div > -->
-        <!-- <div class="spinner-text" fxLayout="row" fxLayoutAlign="center center">Loading your folder...</div> -->
-        <div class="spinner-text" >Loading your folder...</div>
-    </div>
-    <div *ngIf="!loading" class="list-item">
-        <div *ngFor="let item of items" >
-            <app-folder *ngIf="isFolder(item)" (openFolder)="openFolder($event)" [item]="item"></app-folder>
-            <app-file *ngIf="!isFolder(item)" [item]="item"></app-file>
-        </div>
+<div [hidden]="!error" class="error">{{errorMsg}}<img (click)="closeError()" class="icon" src="/assets/close-icon.png"/></div>
+<div class="pathBox">
+    <div class="path label">Path:</div>
+    <div *ngFor="let folder of currentPath" class="path">
+        /<a (click)="openFolder(folder.id)" class="pathText">{{folder.title}}</a>
     </div>
 </div>
+<div class="list-item">
+    <div *ngFor="let item of items" >
+        <app-folder *ngIf="isFolder(item)" (openFolder)="openFolder($event)" [folder]="item"></app-folder>
+        <app-file *ngIf="!isFolder(item)" (handleError)="handleError($event)" [file]="item"></app-file>
+    </div>
+</div>
+
+
+

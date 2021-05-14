@@ -1,3 +1,4 @@
+//This directive is used to provide a default thumbnail when the loading of the item's thumbnail fails
 import { Directive, Input, ElementRef, HostListener } from '@angular/core';
 
 @Directive({

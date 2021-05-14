@@ -1,15 +1,17 @@
+<!-- Uncomment the next line to see tooltips with file details -->
 <!-- <div class="box"  [tooltip]="fileTooltip" content-type="template" [options]="tooltipOptions"> -->
-<div class="box">
+<!-- Comment the next line out to see tooltips with file details -->
+<div class="box" title="globals.openFileMSG">
     <div (click)="openFile()">
-        <img class="thumbnail" src="{{file.thumbnail.url}}" appImgFallback="globals.defaultImageUrl"/>
-        <div  class="file">{{file.asset.filename}}</div>
+        <img class="thumbnail" src="{{file.thumbnail}}" appImgFallback="globals.defaultImageUrl"/>
+        <div  class="file">{{file.title}}</div>
     </div>
     <div *ngIf="!isOpen" (click)="switchIsOpen()" class="switch">Details &#9656;</div>
     <div *ngIf="isOpen" (click)="switchIsOpen()" class="switch">Details &#9662;</div>
-     <div *ngIf="isOpen" class="tooltip" (click)="openFile()">
-        <div *ngIf="file.metadata.description"><b>Description:</b> {{ file.metadata.description }}</div>
-        <div *ngIf="file.created"><b>Created on:</b> {{ file.created | date: 'MM/dd/yyyy' }}</div>
-        <div *ngIf="file.modified"><b>Modified on:</b> {{ file.modified | date: 'MM/dd/yyyy' }}</div>
+     <div *ngIf="isOpen" class="tooltip">
+        <div *ngIf="file.description"><b>Description:</b> {{ file.description }}</div>
+        <div *ngIf="file.createdDate"><b>Created on:</b> {{ file.createdDate | date: 'MM/dd/yyyy' }}</div>
+        <div *ngIf="file.modifiedDate"><b>Modified on:</b> {{ file.modifiedDate | date: 'MM/dd/yyyy' }}</div>
         <div *ngIf="file.modifiedBy"><b>Modified By:</b> {{ file.modifiedBy }}</div>
      </div>
 </div>
@@ -17,9 +19,9 @@
 
 <ng-template #fileTooltip>
     <div class="tooltipTemplate">
-        <div *ngIf="file.metadata.description"><b>Description:</b> {{ file.metadata.description }}</div>
-        <div *ngIf="file.created"><b>Created on:</b> {{ file.created | date: 'MM/dd/yyyy' }}</div>
-        <div *ngIf="file.modified"><b>Modified on:</b> {{ file.modified | date: 'MM/dd/yyyy' }}</div>
+        <div *ngIf="file.description"><b>Description:</b> {{ file.description }}</div>
+        <div *ngIf="file.createdDate"><b>Created on:</b> {{ file.createdDate | date: 'MM/dd/yyyy' }}</div>
+        <div *ngIf="file.modifiedDate"><b>Modified on:</b> {{ file.modifiedDate | date: 'MM/dd/yyyy' }}</div>
         <div *ngIf="file.modifiedBy"><b>Modified By:</b> {{ file.modifiedBy }}</div>
     </div>
 </ng-template>

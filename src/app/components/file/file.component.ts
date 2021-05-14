@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
+import { File } from 'src/app/classes/file';
 import { Globals } from 'src/app/classes/globals';
 
 @Component({
@@ -7,9 +8,9 @@ import { Globals } from 'src/app/classes/globals';
   styleUrls: ['./file.component.scss']
 })
 export class FileComponent implements OnInit {
-  @Input() item: any;
-  
-  file: any;
+  @Input() file: File;
+  @Output() handleError: EventEmitter<string> = new EventEmitter();
+
   globals:Globals;
   tooltipOptions = {};
   isOpen = false;
@@ -17,9 +18,8 @@ export class FileComponent implements OnInit {
   constructor() { this.globals = new Globals(); }
 
   ngOnInit() {
-    this.file = this.item;
+    //tooltips options is going to be used if the tooltips are enabled - check file.component.html
     this.tooltipOptions = {
-      'autoPlacement': true,
       'displayTouchscreen': true,
       'theme': "light"
     }
@@ -31,14 +31,24 @@ export class FileComponent implements OnInit {
 
   openFile() {
     // let url = this.globals.API_PROXY + encodeURIComponent(item.asset.url) + encodeURIComponent(this.globals.API_AUTH);
-    window.open(this.file.asset.url, '_blank');
-  // window.open(url, '_blank');
-  //  this.apiCallsService.getFileToDisplay(this.file.asset.url).subscribe(data => {
-  //     var binaryData = [];
-  //     binaryData.push(data);
-  //     const fileURL = window.URL.createObjectURL(new Blob(binaryData));
-  //     window.open(fileURL, '_blank');
-  //  });
+    let openW = null;
+    try {
+      window.onerror = this.handlePopupErrors;
+      openW = window.open(this.file.fileUrl, '_blank');
+    } catch(error){
+      this.handlePopupErrors();
+    } finally {
+      //checking if fails to open mp4 file. 
+      // Fails with message Plugin Failed: requiremutualssl.RequireMutualSSLPlugin - 
+      //ERROR: Access Denied: Mutual Authentication Required
+      if(openW && !openW.Window.Window && this.file.fileType === 'mp4'){
+        this.handlePopupErrors();
+      }
+    }
+  
   }
 
+  handlePopupErrors(){
+    this.handleError.emit(this.globals.openFileError +  this.file.title);
+  } 
 }

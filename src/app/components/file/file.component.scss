@@ -1,6 +1,6 @@
 
 .file {
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -10,31 +10,13 @@
 }
 
 .tooltip {
-    font-size: 10px;
+    font-size: 12px;
     text-align: center;
-    // display: none;
     color: #f5721a;
     padding: 2px;
     margin: 5px;
     border: 1px solid #f4f4f4;
     background-color: white;
-}
-
-@media only screen and (max-width: 1024px) {
-    .tooltip {
-        display: block;
-        padding: 5px;
-        font-size: 10px;
-    }
-
-    .file {
-        font-size: 12px;
-    }
-
-    .thumbnail {
-        height: 100px;
-        width: 100px;
-    }
 }
 
 .tooltipTemplate {
@@ -43,9 +25,8 @@
 }
 
 .switch {
-     font-size: 11px;
+    font-size: 14px;
     text-align: center;
-    // display: none;
     color: #f5721a;
     padding: 2px;
     margin: 5px;
